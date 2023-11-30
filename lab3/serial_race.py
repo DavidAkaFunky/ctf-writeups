@@ -1,6 +1,4 @@
-import pwn
-import os, pickle
-from base64 import urlsafe_b64encode as b64e
+import pwn, os, pickle
 
 SERVER = "mustard.stt.rnl.tecnico.ulisboa.pt"
 PORT = 23653

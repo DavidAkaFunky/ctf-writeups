@@ -1,6 +1,5 @@
 rm flag not_the_flag result
 touch not_the_flag
-echo "this is not the flag you are looking for" > not_the_flag
 while true
 do
     ln -sf not_the_flag flag
